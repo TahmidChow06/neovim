@@ -55,7 +55,7 @@ set completeopt=menuone,noinsert,noselect
 let mapleader = " "
 
 " Setting colorscheme
-colorscheme onedark
+colorscheme monokai
 
 " szw/vim-maximizer
 nnoremap <leader>m :MaximizerToggle<CR>
@@ -75,6 +75,9 @@ lua require'lspconfig'.pyright.setup{}
 lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
+" running code
+nnoremap <leader>r :!alacritty -e python %<CR>
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>f <cmd>Telescope find_files<cr>
@@ -101,4 +104,4 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
 " Switch to your current theme
-let g:airline_theme = 'onedark'
+let g:airline_theme = 'codedark'

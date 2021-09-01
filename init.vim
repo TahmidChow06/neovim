@@ -1,6 +1,9 @@
 call plug#begin('~/.vim/plugged')
   Plug 'tomasiser/vim-code-dark'
-  Plug 'itchyny/lightline.vim'
+  " Plug 'itchyny/lightline.vim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'szw/vim-maximizer'
   Plug 'jiangmiao/auto-pairs'
   Plug 'morhetz/gruvbox'
@@ -10,9 +13,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'nvim-telescope/telescope.nvim' 
   Plug 'nvim-lua/plenary.nvim'
   Plug 'crusoexia/vim-monokai'
-  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'preservim/nerdcommenter'
   Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'sbdchd/neoformat'
+  Plug 'sheerun/vim-polyglot'
   " Plug 'hrsh7th/nvim-cmp'
   " Plug 'hrsh7th/cmp-nvim-lsp'
   " Plug 'L3MON4D3/LuaSnip'
@@ -63,7 +67,7 @@ set showtabline=2
 set noshowmode
 
 " Save binding
-nnoremap <leader>w :w<CR>
+nnoremap <leader>w :Neoformat <Bar> w<CR>
 nnoremap <leader>e :NvimTreeToggle<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'NvimTree') | q | endif
 
@@ -78,6 +82,23 @@ nnoremap <leader>g <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>sc <cmd>Telescope colorscheme<cr>
 
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ }
+" Status bar
+
+"let g:lightline = {
+      "\ 'colorscheme': 'one',
+      "\ }
+
+" enable tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
+" enable powerline fonts
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
+" Switch to your current theme
+let g:airline_theme = 'onedark'

@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
   Plug 'tomasiser/vim-code-dark'
-  " Plug 'itchyny/lightline.vim'
-  Plug 'vim-airline/vim-airline'
+  Plug 'hoob3rt/lualine.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'easymotion/vim-easymotion'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'szw/vim-maximizer'
@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'sbdchd/neoformat'
   Plug 'sheerun/vim-polyglot'
+  Plug 'metakirby5/codi.vim'
   " Plug 'hrsh7th/nvim-cmp'
   " Plug 'hrsh7th/cmp-nvim-lsp'
   " Plug 'L3MON4D3/LuaSnip'
@@ -27,7 +28,7 @@ inoremap jk <ESC>
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
-nnoremap <TAB> :bnext<CR>
+"nnoremap <TAB> :bnext<CR>
 
 " Use alt + hjkl to resize windows
 nnoremap <M-j>  :resize -2<CR>
@@ -77,31 +78,19 @@ lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " running code
-nnoremap <leader>r :!alacritty -e python %<CR>
+nnoremap <leader>r :w <bar> !python %<CR>
+"nnoremap <leader>r :!alacritty -e python %<CR>
 
+" Toggle Codi
+nnoremap <leader>p :Codi
 " Find files using Telescope command-line sugar.
 nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>g <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>sc <cmd>Telescope colorscheme<cr>
 
-" Status bar
-
-"let g:lightline = {
-      "\ 'colorscheme': 'one',
-      "\ }
-
-" enable tabline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
-
-" enable powerline fonts
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-
-" Switch to your current theme
-let g:airline_theme = 'codedark'
+lua << EOF
+require('lualine').setup {
+	options = {theme = 'codedark'}
+}
+EOF

@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'hoob3rt/lualine.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'easymotion/vim-easymotion'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'szw/vim-maximizer'
   Plug 'jiangmiao/auto-pairs'
   Plug 'morhetz/gruvbox'
@@ -16,8 +15,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'preservim/nerdcommenter'
   Plug 'kyazdani42/nvim-tree.lua'
   Plug 'sbdchd/neoformat'
-  Plug 'sheerun/vim-polyglot'
+  "Plug 'sheerun/vim-polyglot'
   Plug 'metakirby5/codi.vim'
+  Plug 'tpope/vim-surround'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+  Plug 'vhyrro/neorg'
   " Plug 'hrsh7th/nvim-cmp'
   " Plug 'hrsh7th/cmp-nvim-lsp'
   " Plug 'L3MON4D3/LuaSnip'
@@ -28,7 +30,7 @@ inoremap jk <ESC>
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
-"nnoremap <TAB> :bnext<CR>
+nnoremap <TAB> :bnext<CR>
 
 " Use alt + hjkl to resize windows
 nnoremap <M-j>  :resize -2<CR>
@@ -56,7 +58,7 @@ set completeopt=menuone,noinsert,noselect
 let mapleader = " "
 
 " Setting colorscheme
-colorscheme monokai
+colorscheme onedark
 
 " szw/vim-maximizer
 nnoremap <leader>m :MaximizerToggle<CR>
@@ -79,6 +81,7 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " running code
 nnoremap <leader>r :w <bar> !python %<CR>
+
 "nnoremap <leader>r :!alacritty -e python %<CR>
 
 " Toggle Codi
@@ -93,4 +96,20 @@ lua << EOF
 require('lualine').setup {
 	options = {theme = 'codedark'}
 }
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
 EOF
+
+

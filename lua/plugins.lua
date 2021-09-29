@@ -8,11 +8,11 @@ end
 return require('packer').startup({function()
     use {'wbthomason/packer.nvim', opt = true}
 	-- colorschmee
-    use 'tomasiser/vim-code-dark'
-    use 'crusoexia/vim-monokai'
-    use 'morhetz/gruvbox'
+    --use 'tomasiser/vim-code-dark'
+    --use 'crusoexia/vim-monokai'
+    --use 'morhetz/gruvbox'
     use 'joshdick/onedark.vim'
-
+	
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons',
         config = function() require'bufferline'.setup {} end }
 
@@ -47,6 +47,7 @@ return require('packer').startup({function()
         config = function() require'lsp_signature'.setup {} end }
 
     use 'glepnir/lspsaga.nvim'
+
 end,
 config = {
   display = {

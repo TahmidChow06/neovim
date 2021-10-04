@@ -7,4 +7,4 @@ vim.o.splitbelow = true
 vim.opt.splitright = true
 vim.o.termguicolors = true
 
-vim.cmd('colorscheme onedark')
+vim.cmd('colorscheme tokyonight')

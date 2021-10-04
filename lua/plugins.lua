@@ -12,7 +12,10 @@ return require('packer').startup({function()
     --use 'crusoexia/vim-monokai'
     --use 'morhetz/gruvbox'
     use 'joshdick/onedark.vim'
+    use 'folke/tokyonight.nvim'
 	
+	use 'L3MON4D3/LuaSnip'
+    use 'rafamadriz/friendly-snippets'
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons',
         config = function() require'bufferline'.setup {} end }
 
@@ -40,8 +43,9 @@ return require('packer').startup({function()
     use {'neovim/nvim-lspconfig',
     	config = [[require('plugin_settings.lsp-config')]], }
 
-    use {'hrsh7th/nvim-compe',
-    	config = [[require('plugin_settings.compe-config')]], }
+    --use 'https://github.com/hrsh7th/nvim-cmp'
+     use {'hrsh7th/nvim-compe',
+         config = [[require('plugin_settings.compe-config')]], }
 
     use {"ray-x/lsp_signature.nvim",
         config = function() require'lsp_signature'.setup {} end }

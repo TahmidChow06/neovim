@@ -69,6 +69,10 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/home/tahmid/.local/share/nvim/site/pack/packer/start/LuaSnip"
+  },
   ["auto-pairs"] = {
     loaded = true,
     path = "/home/tahmid/.local/share/nvim/site/pack/packer/start/auto-pairs"
@@ -77,6 +81,10 @@ _G.packer_plugins = {
     config = { "\27LJ\1\2<\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\15bufferline\frequire\0" },
     loaded = true,
     path = "/home/tahmid/.local/share/nvim/site/pack/packer/start/bufferline.nvim"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/tahmid/.local/share/nvim/site/pack/packer/start/friendly-snippets"
   },
   ["lsp_signature.nvim"] = {
     config = { "\27LJ\1\2?\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\18lsp_signature\frequire\0" },
@@ -137,6 +145,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tahmid/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/tahmid/.local/share/nvim/site/pack/packer/start/tokyonight.nvim"
+  },
   ["vim-easymotion"] = {
     loaded = true,
     path = "/home/tahmid/.local/share/nvim/site/pack/packer/start/vim-easymotion"
@@ -160,10 +172,10 @@ time([[Config for nvim-lspconfig]], false)
 time([[Config for lualine.nvim]], true)
 require('plugin_settings.lualine')
 time([[Config for lualine.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require('plugin_settings.nvim-tree')
-time([[Config for nvim-tree.lua]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+try_loadstring("\27LJ\1\2;\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
+time([[Config for nvim-colorizer.lua]], false)
 -- Config for: bufferline.nvim
 time([[Config for bufferline.nvim]], true)
 try_loadstring("\27LJ\1\2<\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\15bufferline\frequire\0", "config", "bufferline.nvim")
@@ -172,10 +184,10 @@ time([[Config for bufferline.nvim]], false)
 time([[Config for nvim-compe]], true)
 require('plugin_settings.compe-config')
 time([[Config for nvim-compe]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-try_loadstring("\27LJ\1\2;\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
-time([[Config for nvim-colorizer.lua]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require('plugin_settings.nvim-tree')
+time([[Config for nvim-tree.lua]], false)
 if should_profile then save_profiles() end
 
 end)

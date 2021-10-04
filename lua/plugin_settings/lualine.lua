@@ -1,3 +1,4 @@
 require('lualine').setup({
-    options = { theme  = 'codedark' },
+    options = { theme  = 'tokyonight',  -- theme
+    section_separators = '', component_separators = ''} , -- separator
 })
